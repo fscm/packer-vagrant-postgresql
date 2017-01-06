@@ -1,0 +1,36 @@
+#
+# Systemd script to manage a PostgreSQL instance.
+#
+# Copyright 2016-2017, Frederico Martins
+#   Author: Frederico Martins <http://github.com/fscm>
+#
+# SPDX-License-Identifier: MIT
+#
+
+[Unit]
+Description=PostgreSQL
+ConditionPathIsDirectory=/var/run/postgresql
+After=network.target network-online.target postgresql-var-run.service
+Wants=network-online.target
+
+[Service]
+Type=forking
+User=postgresql
+Group=postgresql
+PIDFile=/var/run/postgresql/postgresql.pid
+WorkingDirectory=/srv/postgresql
+ExecStart=/srv/postgresql/bin/pg_ctl start -s
+ExecReload=/srv/postgresql/bin/pg_ctl reload
+ExecStop=/srv/postgresql/bin/pg_ctl stop -s -m fast
+StandardOutput=journal
+StandardError=journal
+LimitNOFILE=infinity
+LimitMEMLOCK=infinity
+LimitNPROC=infinity
+LimitAS=infinity
+OOMScoreAdjust=-200
+Restart=always
+RestartSec=20
+
+[Install]
+WantedBy=multi-user.target

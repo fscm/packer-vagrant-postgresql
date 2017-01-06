@@ -1,0 +1,26 @@
+#
+# Systemd script to create the /var/run/postgresql folder at start up.
+# Because the pg_ctl tool needs to be run with the PostgreSQL user the
+# PermissionsStartOnly could not be used on the postgresql.service.
+#
+# Copyright 2016-2017, Frederico Martins
+#   Author: Frederico Martins <http://github.com/fscm>
+#
+# SPDX-License-Identifier: MIT
+#
+
+[Unit]
+Description=PostgreSQL Utils
+
+[Service]
+Type=oneshot
+ExecStartPre=-/usr/bin/install -o postgresql -g postgresql -d /var/run/postgresql
+ExecStart=/bin/true
+ExecReload=/bin/true
+ExecStop=/bin/true
+StandardOutput=journal
+StandardError=journal
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target
