@@ -16,7 +16,7 @@
     "os_arch":                 "amd64",
     "os_short_arch":           "x64",
     "os_type_virtualbox":      "Debian_64",
-    "os_version":              "8.6.0"
+    "os_version":              "8.7.1"
   },
   "builders": [
     {
