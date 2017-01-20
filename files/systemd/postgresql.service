@@ -22,6 +22,7 @@ WorkingDirectory=/srv/postgresql
 ExecStart=/srv/postgresql/bin/pg_ctl start -s
 ExecReload=/srv/postgresql/bin/pg_ctl reload
 ExecStop=/srv/postgresql/bin/pg_ctl stop -s -m fast
+SyslogIdentifier=postgresql
 StandardOutput=journal
 StandardError=journal
 LimitNOFILE=infinity
