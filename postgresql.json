@@ -101,14 +101,17 @@
       "only":           ["virtualbox"],
       "type":           "shell",
       "inline_shebang": "/bin/bash -e",
+      "environment_vars": [
+        "DEBIAN_FRONTEND=noninteractive"
+      ],
       "inline": [
         "unset HISTFILE",
         "history -cw",
         "echo === System Packages ===",
         "echo 'deb http://ftp.debian.org/debian jessie-backports main contrib non-free' | sudo tee /etc/apt/sources.list.d/backports.list > /dev/null",
         "sudo apt-get -qq update",
-        "sudo DEBIAN_FRONTEND=noninteractive apt-get -y -qq install --no-install-recommends linux-headers-amd64 vim wget dbus unzip zip libyaml-0-2 curl libpq5 libxml2 ssl-cert ca-certificates",
-        "sudo DEBIAN_FRONTEND=noninteractive apt-get -y -qq install --no-install-recommends -t jessie-backports virtualbox-guest-dkms virtualbox-guest-utils",
+        "sudo apt-get -y -qq install --no-install-recommends linux-headers-amd64 vim wget dbus unzip zip libyaml-0-2 curl libpq5 libxml2 ssl-cert ca-certificates",
+        "sudo apt-get -y -qq install --no-install-recommends -t jessie-backports virtualbox-guest-dkms virtualbox-guest-utils",
         "sudo apt-get -y -qq --purge autoremove",
         "sudo apt-get autoclean",
         "sudo apt-get clean"
