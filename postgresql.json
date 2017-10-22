@@ -11,7 +11,7 @@
     "os_arch":            "amd64",
     "os_short_arch":      "x64",
     "os_type_virtualbox": "Debian_64",
-    "os_version":         "9.1.0",
+    "os_version":         "9.2.1",
     "postgresql_build":   "1",
     "postgresql_uid":     "2004",
     "postgresql_version": "9.6.5",
