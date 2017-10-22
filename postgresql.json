@@ -14,7 +14,7 @@
     "os_version":         "9.2.1",
     "postgresql_build":   "1",
     "postgresql_uid":     "2004",
-    "postgresql_version": "9.6.5",
+    "postgresql_version": "10.0",
     "system_disk_size":   "12288",
     "system_domain":      "marsh",
     "system_hostname":    "postgresql",
