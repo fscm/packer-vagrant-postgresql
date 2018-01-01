@@ -3,7 +3,7 @@
 # Because the pg_ctl tool needs to be run with the PostgreSQL user the
 # PermissionsStartOnly could not be used on the postgresql.service.
 #
-# Copyright 2016-2017, Frederico Martins
+# Copyright 2016-2018, Frederico Martins
 #   Author: Frederico Martins <http://github.com/fscm>
 #
 # SPDX-License-Identifier: MIT
